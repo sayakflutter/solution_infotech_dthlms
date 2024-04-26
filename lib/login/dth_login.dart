@@ -6,7 +6,7 @@ import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/pages/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -246,6 +246,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .done,
@@ -300,6 +303,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .done,
@@ -354,6 +360,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .done,
@@ -408,6 +417,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .done,
@@ -540,9 +552,6 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                     ),
                                                   )
                                                 : Form(
-                                                    autovalidateMode:
-                                                        AutovalidateMode
-                                                            .onUserInteraction,
                                                     key: _key,
                                                     child: Column(
                                                       children: [
@@ -573,6 +582,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .next,
@@ -627,6 +639,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .next,
@@ -680,6 +695,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                     formfieldsize,
                                                                 child:
                                                                     TextFormField(
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .onUserInteraction,
                                                                   textInputAction:
                                                                       TextInputAction
                                                                           .done,
@@ -992,6 +1010,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
@@ -1034,6 +1055,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
@@ -1074,6 +1098,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
@@ -1116,6 +1143,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
@@ -1232,8 +1262,6 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                         ),
                                       )
                                     : Form(
-                                        autovalidateMode:
-                                            AutovalidateMode.onUserInteraction,
                                         key: _key,
                                         child: Column(
                                           children: [
@@ -1258,6 +1286,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
@@ -1298,6 +1329,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
@@ -1340,6 +1374,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                 SizedBox(
                                                     width: formfieldsize,
                                                     child: TextFormField(
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .onUserInteraction,
                                                       validator: (value) {
                                                         if (value!.isEmpty) {
                                                           return 'Cannot blank';
