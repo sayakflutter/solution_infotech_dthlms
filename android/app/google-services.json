@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "289552143760",
+    "project_id": "dthlms",
+    "storage_bucket": "dthlms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289552143760:android:e692d43765ad62de938f15",
+        "android_client_info": {
+          "package_name": "com.example.dthlms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289552143760-n9md4r6g3gbt9lutp4vkdoaiuj8690iv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dthlms",
+            "certificate_hash": "04a8bf39d02b87f53085c0750de410a3842208c0"
+          }
+        },
+        {
+          "client_id": "289552143760-vmq6huogcj26i87r4t3uuv3lqkar4gpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBle9xyxoq6wLGLNEy9Lp1Tw2QSzgP0xWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289552143760-vmq6huogcj26i87r4t3uuv3lqkar4gpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
