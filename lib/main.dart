@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dthlms/login/dth_login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -9,11 +8,11 @@ import 'package:window_size/window_size.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isWindows) {
-    // setWindowMaxSize(const Size(1280, 720));
     setWindowMinSize(const Size(1400, 800));
   }
-  runApp(const MyApp());
-  // await Firebase.initializeApp();
+  runApp(
+    const MyApp(),
+  );
 }
 
 GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
