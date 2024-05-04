@@ -27,7 +27,9 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
   TextEditingController loginpassword = TextEditingController();
   TextEditingController loginotp = TextEditingController();
 
-  final GlobalKey<FormState> _key = GlobalKey();
+  final GlobalKey<FormState> desktop_key = GlobalKey();
+
+  final GlobalKey<FormState> mobile_key = GlobalKey();
   late double formfieldsize = 400;
   late double fontsize = 30;
   Getx getxController = Get.put(Getx());
@@ -82,7 +84,6 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                       ),
                       Expanded(
                         child: Column(
-                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -209,10 +210,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                             ),
                                             getxController.show.value
                                                 ? Form(
-                                                    autovalidateMode:
-                                                        AutovalidateMode
-                                                            .onUserInteraction,
-                                                    key: _key,
+                                                    key: desktop_key,
                                                     child: Column(
                                                       children: [
                                                         Row(
@@ -474,7 +472,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                         .colorgrey,
                                                                     onPressed:
                                                                         () {
-                                                                      if (_key
+                                                                      if (desktop_key
                                                                           .currentState!
                                                                           .validate()) {
                                                                         Navigator.push(
@@ -548,7 +546,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                     ),
                                                   )
                                                 : Form(
-                                                    key: _key,
+                                                    key: desktop_key,
                                                     child: Column(
                                                       children: [
                                                         Row(
@@ -751,10 +749,11 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                                         .colorgrey,
                                                                     onPressed:
                                                                         () {
-                                                                      if (_key
+                                                                      if (desktop_key
                                                                           .currentState!
                                                                           .validate()) {
-                                                                        _key.currentState!
+                                                                        desktop_key
+                                                                            .currentState!
                                                                             .save();
                                                                         Get.to(() =>
                                                                             const Dashboard());
@@ -982,7 +981,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                     ? Form(
                                         autovalidateMode:
                                             AutovalidateMode.onUserInteraction,
-                                        key: _key,
+                                        key: mobile_key,
                                         child: Column(
                                           children: [
                                             Row(
@@ -1189,7 +1188,8 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                         color:
                                                             ColorPage.colorgrey,
                                                         onPressed: () {
-                                                          if (_key.currentState!
+                                                          if (mobile_key
+                                                              .currentState!
                                                               .validate()) {
                                                             Navigator.push(
                                                                 context,
@@ -1258,7 +1258,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                         ),
                                       )
                                     : Form(
-                                        key: _key,
+                                        key: mobile_key,
                                         child: Column(
                                           children: [
                                             Row(
@@ -1418,9 +1418,11 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
                                                         color:
                                                             ColorPage.colorgrey,
                                                         onPressed: () {
-                                                          if (_key.currentState!
+                                                          if (mobile_key
+                                                              .currentState!
                                                               .validate()) {
-                                                            _key.currentState!
+                                                            mobile_key
+                                                                .currentState!
                                                                 .save();
 
                                                             Navigator.push(
@@ -1448,7 +1450,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
 
                                                                                           // launchWhatsAppUri();
                                                                                         },
-                                                                                        child: Text('Link'))),
+                                                                                        child: const Text('Link'))),
                                                                               ),
                                                                             )));
                                                           }

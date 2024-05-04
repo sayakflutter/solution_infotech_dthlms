@@ -9,19 +9,12 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: ColorPage.color1,
       child: Container(
         padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(colors: [
-              Color.fromARGB(
-                255,
-                16,
-                47,
-                221,
-              ),
-              ColorPage.color1,
-            ])),
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Column(
           children: [
             const Row(

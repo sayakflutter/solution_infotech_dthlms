@@ -45,14 +45,9 @@ class _StudyDashboardState extends State<StudyDashboard> {
                 ),
               ),
             ),
-            Expanded(
-              child: Container(
-                width: MediaQuery.sizeOf(context).width,
-                // height: MediaQuery.sizeOf(context).height - 130,
-                // color: Colors.black,
-                child: const Column(
-                  children: [],
-                ),
+            const Expanded(
+              child: Column(
+                children: [],
               ),
             )
           ],

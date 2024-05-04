@@ -11,7 +11,7 @@ class FontFamily {
           fontWeight: FontWeight.bold));
   static var font2 = GoogleFonts.outfit(
       textStyle: TextStyle(
-          color: ColorPage.white, fontSize: 15, fontWeight: FontWeight.w400));
+          color: ColorPage.white, fontSize: 15, fontWeight: FontWeight.bold));
   static var mobilefont = GoogleFonts.outfit(
       textStyle: TextStyle(
           color: ColorPage.colorgrey,
