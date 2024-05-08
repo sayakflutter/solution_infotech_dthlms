@@ -49,16 +49,17 @@ Future loginApi(
     getObj.loginuserdata.add(userdata);
 
     Get.back();
-    await FlutterPlatformAlert.playAlertSound();
+    Get.to(() => const Dashboard());
+    // await FlutterPlatformAlert.playAlertSound();
 
-    final result = await FlutterPlatformAlert.showCustomAlert(
-      windowTitle: 'Login',
-      text: 'Login Sucessfull',
-      positiveButtonTitle: "Ok",
-    );
-    if (CustomButton.positiveButton == result) {
-      Get.to(() => const Dashboard());
-    } else {}
+    // final result = await FlutterPlatformAlert.showCustomAlert(
+    //   windowTitle: 'Login',
+    //   text: 'Login Sucessfull',
+    //   positiveButtonTitle: "Ok",
+    // );
+    // if (CustomButton.positiveButton == result) {
+    //   Get.to(() => const Dashboard());
+    // } else {}
   } else {
     if (kDebugMode) {
       print(res.statusCode);
