@@ -1,16 +1,15 @@
-import 'dart:ffi';
-
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/widget/drawerWidget.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../color/color.dart';
 
+// ignore: must_be_immutable
 class Profile extends StatefulWidget {
   String optionname;
   Profile(this.optionname, {super.key});
@@ -33,6 +32,7 @@ class _ProfileState extends State<Profile> {
   }
 
   double width = 400;
+  // ignore: non_constant_identifier_names
   Getx get_obj = Get.put(Getx());
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,8 @@ class _ProfileState extends State<Profile> {
                 label: Text(
                   'Log Out',
                   style: GoogleFonts.kadwa(
-                      textStyle: TextStyle(fontSize: 20, color: Colors.white)),
+                      textStyle:
+                          const TextStyle(fontSize: 20, color: Colors.white)),
                 ))
           ],
           backgroundColor: ColorPage.appbarcolor,
@@ -175,7 +176,7 @@ class _ProfileState extends State<Profile> {
                                         decoration: InputDecoration(
                                             suffix: IconButton(
                                                 onPressed: () {},
-                                                icon: Icon(Icons.edit))),
+                                                icon: const Icon(Icons.edit))),
                                       )),
                                 ],
                               ),
@@ -201,7 +202,8 @@ class _ProfileState extends State<Profile> {
                                           decoration: InputDecoration(
                                               suffix: IconButton(
                                                   onPressed: () {},
-                                                  icon: Icon(Icons.edit))),
+                                                  icon:
+                                                      const Icon(Icons.edit))),
                                           controller: email,
                                         )),
                                   ],

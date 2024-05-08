@@ -1,10 +1,10 @@
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/widget/drawerWidget.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../color/color.dart';
@@ -23,6 +23,7 @@ class MyClassDashboard extends StatefulWidget {
 
 class _MyClassDashboardState extends State<MyClassDashboard> {
   final obj = const ButtonWidget();
+  // ignore: non_constant_identifier_names
   Getx get_obj = Get.put(Getx());
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class _MyClassDashboardState extends State<MyClassDashboard> {
                                 children: [
                                   Text('ALL ONline'.toUpperCase(),
                                       style: GoogleFonts.kadwa(
-                                        textStyle: TextStyle(
+                                        textStyle: const TextStyle(
                                           color: ColorPage.white,
                                         ),
                                       )),
@@ -107,7 +108,7 @@ class _MyClassDashboardState extends State<MyClassDashboard> {
                               () => Visibility(
                                 visible: get_obj.dropbuttonvalueshow.value,
                                 child: Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 5),
                                   decoration: BoxDecoration(
                                       color: const Color.fromARGB(

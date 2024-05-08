@@ -1,8 +1,7 @@
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import '../../widget/drawerWidget.dart';
 import 'myclasscontentvideo/myclasscontentvideo.dart';
@@ -76,9 +75,9 @@ class _MyClassContentState extends State<MyClassContent>
           body: Row(
             children: [
               const DrawerWidget(),
-              Container(
+              SizedBox(
                   width: MediaQuery.sizeOf(context).width - 1200,
-                  child: MyClassVideoContent()),
+                  child: const MyClassVideoContent()),
               Expanded(
                 child: Container(
                   color: ColorPage.color1,

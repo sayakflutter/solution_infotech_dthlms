@@ -6,7 +6,7 @@ import '../../widget/buttonwidget.dart';
 
 // ignore: must_be_immutable
 class StudyDashboard extends StatefulWidget {
-  StudyDashboard({super.key});
+  const StudyDashboard({super.key});
 
   @override
   State<StudyDashboard> createState() => _StudyDashboardState();

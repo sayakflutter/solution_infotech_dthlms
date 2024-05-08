@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // ignore: non_constant_identifier_names
   Getx get_obj = Get.put(Getx());
   double? size = 80;
   double? hight = 230;
