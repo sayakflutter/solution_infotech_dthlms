@@ -48,8 +48,7 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding
       path: plugins/window_size
-  window_manager: ^0.3.4
-  flutter_windowmanager: ^0.2.0
+  
   
   # my_screenshot_prevention_plugin:
     # path: my_screenshot_prevention_plugin

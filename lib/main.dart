@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:dthlms/login/dth_login.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -13,11 +12,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isWindows) {
     setWindowMinSize(const Size(1400, 1000));
-    // windowManager.waitUntilReadyToShow().then((_) {
-    //   windowManager.setPreventClose(true);
-    //   windowManager.setPreventClose(true);
-    //   windowManager.show();
-    // });
   }
   runApp(
     const MyApp(),
