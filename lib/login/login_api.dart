@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/login/loginmodel.dart';
 import 'package:dthlms/pages/dashboard.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:get/get.dart';
