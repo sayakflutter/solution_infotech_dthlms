@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/login/loginmodel.dart';
 import 'package:dthlms/pages/dashboard.dart';
+import 'package:dthlms/url/api_url.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
@@ -18,7 +19,7 @@ Future loginApi(
   showDialog(
       context: context,
       builder: (context) {
-        return const Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator.adaptive());
       });
   // try {
   Map<String, dynamic> data = {
@@ -28,7 +29,7 @@ Future loginApi(
   };
 
   final http.Response res =
-      await http.post(Uri.https('dthclass.com', '/api/auth/login'),
+      await http.post(Uri.https(UrlApi.mainurl, '/api/auth/login'),
           headers: <String, String>{
             'Content-Type': 'application/json',
           },
@@ -82,7 +83,7 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
     showDialog(
         context: context,
         builder: (context) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator.adaptive());
         });
 
     Map<String, dynamic> data = {
@@ -97,7 +98,7 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
       'phoneNumberCode': '2620036',
     };
     final http.Response res = await http.post(
-        Uri.https('dthclass.com', 'api/auth/studentregister/$key'),
+        Uri.https(UrlApi.mainurl, 'api/auth/studentregister/$key'),
         headers: <String, String>{
           'Content-Type': 'application/json',
         },
@@ -153,11 +154,11 @@ Future signupcodegenerate(
         context: context,
         builder: (context) {
           return const Center(
-            child: CircularProgressIndicator(color: Colors.blue),
+            child: CircularProgressIndicator.adaptive(),
           );
         });
     var response = await http
-        .get(Uri.https('dthclass.com', '/api/auth/getUserConfirmationType'));
+        .get(Uri.https(UrlApi.mainurl, '/api/auth/getUserConfirmationType'));
     var json = jsonDecode(response.body);
     if (kDebugMode) {
       print(response);
@@ -169,7 +170,7 @@ Future signupcodegenerate(
         "franchiseId": 1
       };
       var responsecode =
-          await http.post(Uri.https('dthclass.com', '/api/auth/generateCode'),
+          await http.post(Uri.https(UrlApi.mainurl, '/api/auth/generateCode'),
               headers: <String, String>{
                 'Content-Type': 'application/json',
               },
