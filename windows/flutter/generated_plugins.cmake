@@ -6,6 +6,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   firebase_auth
   firebase_core
   flutter_platform_alert
+  permission_handler_windows
+  syncfusion_pdfviewer_windows
   url_launcher_windows
   window_size
 )

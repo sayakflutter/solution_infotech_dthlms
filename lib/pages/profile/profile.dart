@@ -1,5 +1,6 @@
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
+import 'package:dthlms/pages/utctime.dart';
 import 'package:dthlms/widget/drawerWidget.dart';
 
 import 'package:flutter/material.dart';
@@ -34,12 +35,17 @@ class _ProfileState extends State<Profile> {
   double width = 400;
   // ignore: non_constant_identifier_names
   Getx get_obj = Get.put(Getx());
+  UtcTime time = UtcTime();
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
         appBar: AppBar(
           actions: [
+            Text(
+              time.utctime(),
+              style: FontFamily.font2,
+            ),
             TextButton.icon(
                 onPressed: () {},
                 icon: Image.asset(
@@ -54,14 +60,6 @@ class _ProfileState extends State<Profile> {
                 ))
           ],
           backgroundColor: ColorPage.appbarcolor,
-          leading: IconButton(
-              onPressed: () {
-                Get.back(result: 0);
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: ColorPage.white,
-              )),
           title: Text(
             widget.optionname,
             style: FontFamily.font2,

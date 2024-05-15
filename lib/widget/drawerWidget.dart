@@ -2,6 +2,8 @@
 
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
+import 'package:dthlms/pages/StudyMaterial/StudyMaterial.dart';
+import 'package:dthlms/pages/StudyMaterial/StudyMaterialDashboard.dart';
 import 'package:dthlms/pages/dashboard.dart';
 import 'package:dthlms/pages/profile/profile.dart';
 
@@ -53,7 +55,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   tooltip: 'My Courses',
                   onPressed: () {
                     get_obj.page_index.value = 1;
-                    Get.to(() => MyClassDashboard('My Courses'),
+                    Get.offAll(() => MyClassDashboard('My Courses'),
                             transition: Transition.leftToRight)
                         ?.then((value) => get_obj.page_index.value = value);
                   },
@@ -61,10 +63,18 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     'assets/1.png',
                   )),
             ),
-            IconButton(
-                tooltip: 'Study Material',
-                onPressed: () {},
-                icon: Image.asset('assets/2.png')),
+            Container(
+              color: get_obj.page_index.value == 2 ? ColorPage.color1 : null,
+              child: IconButton(
+                  tooltip: 'StudyMaterial',
+                  onPressed: () {
+                    get_obj.page_index.value = 2;
+                    Get.offAll(() => StudyMaterialDashboard('Study Material'),
+                            transition: Transition.leftToRight)
+                        ?.then((value) => get_obj.page_index.value = value);
+                  },
+                  icon: Image.asset('assets/2.png')),
+            ),
             IconButton(
                 tooltip: 'Live',
                 onPressed: () {},
@@ -79,7 +89,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   tooltip: 'Profile',
                   onPressed: () {
                     get_obj.page_index.value = 5;
-                    Get.to(() => Profile('Profile'),
+                    Get.offAll(() => Profile('Profile'),
                             transition: Transition.leftToRight)
                         ?.then((value) => get_obj.page_index.value = value);
                   },

@@ -1,6 +1,7 @@
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/home/homepage.dart';
+import 'package:dthlms/pages/utctime.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/drawerWidget.dart';
@@ -13,12 +14,17 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  UtcTime time = UtcTime();
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
         appBar: AppBar(
           actions: [
+            Text(
+              time.utctime(),
+              style: FontFamily.font2,
+            ),
             IconButton(
                 tooltip: 'Profile',
                 onPressed: () {},

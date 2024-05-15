@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dthlms/login/dth_login.dart';
+import 'package:dthlms/pages/StudyMaterial/StudyMaterial.dart';
 
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const DthLmsLogin(),
+      home: DthLmsLogin(),
     );
   }
 }

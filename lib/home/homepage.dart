@@ -1,5 +1,6 @@
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
+import 'package:dthlms/pages/StudyMaterial/StudyMaterial.dart';
 import 'package:dthlms/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                       child: InkWell(
                         onTap: () {
                           get_obj.page_index.value = 1;
-                          Get.to(() => MyClassDashboard('My Courses'),
+                          Get.offAll(() => MyClassDashboard('My Courses'),
                                   transition: Transition.leftToRight)
                               ?.then((value) => get_obj.page_index.value = 0);
                         },
@@ -87,40 +88,52 @@ class _HomePageState extends State<HomePage> {
                     Card(
                       color: Colors.white,
                       surfaceTintColor: Colors.white,
-                      child: SizedBox(
-                        height: hight,
-                        width: 349,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                    padding: const EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        gradient: const LinearGradient(colors: [
-                                          Color.fromRGBO(247, 97, 161, 1),
-                                          Color.fromRGBO(140, 27, 71, 1)
-                                        ], end: Alignment.bottomRight)),
-                                    child: Image.asset(
-                                      'assets/book.png',
-                                      color: Colors.white,
-                                      width: size,
-                                    ))
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  'Study Material',
-                                  style: FontFamily.font,
-                                ),
-                              ],
-                            )
-                          ],
+                      child: InkWell(
+                        onTap: () {
+                          get_obj.page_index.value = 2;
+                          Get.offAll(() => StudyMaterialPdf('Study Material'),
+                                  transition: Transition.leftToRight)
+                              ?.then((value) => get_obj.page_index.value = 0);
+                        },
+                        child: SizedBox(
+                          height: hight,
+                          width: 349,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          gradient: const LinearGradient(
+                                              colors: [
+                                                Color.fromRGBO(247, 97, 161, 1),
+                                                Color.fromRGBO(140, 27, 71, 1)
+                                              ],
+                                              end: Alignment.bottomRight)),
+                                      child: Image.asset(
+                                        'assets/book.png',
+                                        color: Colors.white,
+                                        width: size,
+                                      ))
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    'Study Material',
+                                    style: FontFamily.font,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -215,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                       child: InkWell(
                         onTap: () {
                           get_obj.page_index.value = 5;
-                          Get.to(() => Profile('Profile'),
+                          Get.offAll(() => Profile('Profile'),
                                   transition: Transition.leftToRight)
                               ?.then((value) => get_obj.page_index.value = 0);
                         },

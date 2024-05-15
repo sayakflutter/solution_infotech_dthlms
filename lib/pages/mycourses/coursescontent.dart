@@ -1,4 +1,5 @@
 import 'package:dthlms/getx/getxcontroller.dart';
+import 'package:dthlms/pages/utctime.dart';
 import 'package:dthlms/widget/drawerWidget.dart';
 
 import 'package:flutter/material.dart';
@@ -25,27 +26,26 @@ class _MyClassDashboardState extends State<MyClassDashboard> {
   final obj = const ButtonWidget();
   // ignore: non_constant_identifier_names
   Getx get_obj = Get.put(Getx());
+  UtcTime time = UtcTime();
+
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
         backgroundColor: ColorPage.bgcolor,
         appBar: AppBar(
+          actions: [
+            Text(
+              time.utctime(),
+              style: FontFamily.font2,
+            )
+          ],
           title: Text(
             widget.optionname,
             style: FontFamily.font2,
             textScaler: const TextScaler.linear(1.7),
           ),
           backgroundColor: ColorPage.appbarcolor,
-          leading: IconButton(
-            onPressed: () {
-              Get.back(result: 0);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-            ),
-            color: Colors.white,
-          ),
         ),
         body: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
