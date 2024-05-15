@@ -35,9 +35,12 @@ class _MyClassDashboardState extends State<MyClassDashboard> {
         backgroundColor: ColorPage.bgcolor,
         appBar: AppBar(
           actions: [
-            Text(
-              time.utctime(),
-              style: FontFamily.font2,
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Text(
+                time.utctime(),
+                style: FontFamily.font2,
+              ),
             )
           ],
           title: Text(

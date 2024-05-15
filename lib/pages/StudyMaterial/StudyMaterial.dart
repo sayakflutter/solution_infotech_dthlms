@@ -44,9 +44,12 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
         backgroundColor: ColorPage.bgcolor,
         appBar: AppBar(
           actions: [
-            Text(
-              time.utctime(),
-              style: FontFamily.font2,
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Text(
+                time.utctime(),
+                style: FontFamily.font2,
+              ),
             )
           ],
           backgroundColor: ColorPage.appbarcolor,
@@ -128,10 +131,11 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
                             children: [
                               Container(
                                   // width: MediaQuery.sizeOf(context).width,
-                                  // height: MediaQuery.sizeOf(context).height,
+                                  height:
+                                      MediaQuery.sizeOf(context).height - 50,
                                   child: SfPdfViewer.memory(
-                                decryptedPdfData!,
-                              )),
+                                    decryptedPdfData!,
+                                  )),
                             ],
                           ),
                         )),
@@ -156,19 +160,23 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
   late Directory appDocDir;
   Future<Directory> get getExternalvisibledir async {
     if (Platform.isAndroid) {
-      if (await Directory('/storage/emulated/0/MyMishra').exists()) {
-        final externalDir = Directory('/storage/emulated/0/MyMishra');
+      if (await Directory('/storage/emulated/0/Solution_infotech_pdf')
+          .exists()) {
+        final externalDir =
+            Directory('/storage/emulated/0/Solution_infotech_pdf');
         return externalDir;
       } else {
-        await Directory('/storage/emulated/0/MyMishra').create(recursive: true);
-        final externalDir = Directory('/storage/emulated/0/MyMishra');
+        await Directory('/storage/emulated/0/Solution_infotech_pdf')
+            .create(recursive: true);
+        final externalDir =
+            Directory('/storage/emulated/0/Solution_infotech_pdf');
         return externalDir;
       }
     } else {
       final Directory _appDocDir = await getApplicationDocumentsDirectory();
       //App Document Directory + folder name
       final Directory _appDocDirFolder =
-          Directory('${_appDocDir.path}/MyMishra');
+          Directory('${_appDocDir.path}/Solution_infotech_pdf');
 
       if (await _appDocDirFolder.exists()) {
         //if folder already exists return path

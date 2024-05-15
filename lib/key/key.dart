@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:flutter/foundation.dart';
 
 class MyEncrypt {
   // static final myiv = encrypt.IV.fromUtf8('sayakmishra123');
@@ -18,7 +18,9 @@ class MyEncryptDecrypte {
 }
 
 encrypte(bodyBytes) async {
-  print('encrypting file......');
+  if (kDebugMode) {
+    print('encrypting file......');
+  }
   final encrypted =
       MyEncrypt.encrypter.encryptBytes(bodyBytes, iv: MyEncrypt.myiv);
   // print(encrypted.bytes);
@@ -26,7 +28,9 @@ encrypte(bodyBytes) async {
 }
 
 decrypteData(encdata) async {
-  print('file decryption in progress .......');
+  if (kDebugMode) {
+    print('file decryption in progress .......');
+  }
   encrypt.Encrypted en = encrypt.Encrypted(encdata);
   var decrypted = MyEncrypt.encrypter.decryptBytes(en, iv: MyEncrypt.myiv);
   // print(decrypted);
@@ -34,14 +38,18 @@ decrypteData(encdata) async {
 }
 
 Future<dynamic> writedata(List<int> encResult, String s) async {
-  print('Writting data');
+  if (kDebugMode) {
+    print('Writting data');
+  }
   File f = File(s);
   await f.writeAsBytes(encResult);
   return f.absolute.toString();
 }
 
 Future<Uint8List> readData(planstring) async {
-  print('reading encrypted file data.......');
+  if (kDebugMode) {
+    print('reading encrypted file data.......');
+  }
   File f = File(planstring);
   return await f.readAsBytes();
 }

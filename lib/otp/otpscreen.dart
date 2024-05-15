@@ -38,10 +38,15 @@ class _OTPScreenState extends State<OTPScreen> {
   }
 
   Future call() async {
-    signupcodegenerate(widget.signupphno, widget.signupemail, context)
-        .then((value) {
-      key = value;
-    });
+    try {
+      signupcodegenerate(widget.signupphno, widget.signupemail, context)
+          .then((value) {
+        print(value);
+        key = value;
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   GlobalKey<FormState> globalKey = GlobalKey();

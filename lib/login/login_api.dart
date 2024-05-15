@@ -3,7 +3,7 @@ import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/login/loginmodel.dart';
 import 'package:dthlms/pages/dashboard.dart';
 import 'package:dthlms/url/api_url.dart';
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:get/get.dart';
@@ -34,9 +34,9 @@ Future loginApi(
             'Content-Type': 'application/json',
           },
           body: json.encode(data));
-  if (kDebugMode) {
-    print(res.body);
-  }
+
+  print(res.body);
+
   var jsondata = json.decode(res.body);
   if (res.statusCode == 200 &&
       jsondata['statusCode'] == 200 &&
@@ -60,9 +60,8 @@ Future loginApi(
     //   Get.to(() => const Dashboard());
     // } else {}
   } else {
-    if (kDebugMode) {
-      print(res.statusCode);
-    }
+    print(res.statusCode);
+
     Get.back();
     await FlutterPlatformAlert.playAlertSound();
 
@@ -103,9 +102,9 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
           'Content-Type': 'application/json',
         },
         body: jsonEncode(data));
-    if (kDebugMode) {
-      print(res.body);
-    }
+
+    print(res.body);
+
     var jsondata = json.decode(res.body);
     if (res.statusCode == 200 &&
         jsondata['statusCode'] == 200 &&
@@ -129,9 +128,9 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
       } else {}
     } else {
       Get.back();
-      if (kDebugMode) {
-        print(res.statusCode);
-      }
+
+      print(res.statusCode);
+
       await FlutterPlatformAlert.playAlertSound();
 
       // ignore: unused_local_variable
@@ -143,6 +142,14 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
     }
   } catch (e) {
     Get.back();
+    await FlutterPlatformAlert.playAlertSound();
+
+    // ignore: unused_local_variable
+    final result = await FlutterPlatformAlert.showCustomAlert(
+      windowTitle: 'Login',
+      text: e.toString(),
+      positiveButtonTitle: "Ok",
+    );
   }
 }
 
@@ -160,9 +167,9 @@ Future signupcodegenerate(
     var response = await http
         .get(Uri.https(UrlApi.mainurl, '/api/auth/getUserConfirmationType'));
     var json = jsonDecode(response.body);
-    if (kDebugMode) {
-      print(response);
-    }
+
+    print(response.body);
+
     if (response.statusCode == 200 && json['isSuccess'] == true) {
       Map<String, dynamic> datacode = {
         "phoneNumber": signupphno,
@@ -176,9 +183,9 @@ Future signupcodegenerate(
               },
               body: jsonEncode(datacode));
       var json = jsonDecode(responsecode.body);
-      if (kDebugMode) {
-        print(responsecode);
-      }
+
+      print(responsecode.body);
+
       if (responsecode.statusCode == 200 && json['isSuccess'] == true) {
         String key = json['result'];
         getObj.otplineshow.value = true;
@@ -186,14 +193,30 @@ Future signupcodegenerate(
 
         return key;
       } else {
-        if (kDebugMode) {
-          print(responsecode);
-        }
+        // print(responsecode.body);
+
         Get.back();
-        return null;
+        await FlutterPlatformAlert.playAlertSound();
+
+        // ignore: unused_local_variable
+        final result = await FlutterPlatformAlert.showCustomAlert(
+          windowTitle: 'Login',
+          text: json["ErrorMessages"].toString(),
+          positiveButtonTitle: "Ok",
+        );
+
+        return 'error';
       }
     }
   } catch (e) {
     Get.back();
+    await FlutterPlatformAlert.playAlertSound();
+
+    // ignore: unused_local_variable
+    final result = await FlutterPlatformAlert.showCustomAlert(
+      windowTitle: 'Login1',
+      text: e.toString(),
+      positiveButtonTitle: "Ok",
+    );
   }
 }

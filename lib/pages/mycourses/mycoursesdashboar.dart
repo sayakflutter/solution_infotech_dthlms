@@ -1,5 +1,6 @@
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
+import 'package:dthlms/pages/utctime.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ class MyClassContent extends StatefulWidget {
 class _MyClassContentState extends State<MyClassContent>
     with TickerProviderStateMixin {
   final white = const Color.fromRGBO(250, 250, 250, 1);
+  UtcTime time = UtcTime();
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -58,18 +60,11 @@ class _MyClassContentState extends State<MyClassContent>
             ),
             actions: [
               Padding(
-                padding: const EdgeInsets.only(right: 50),
-                child: SizedBox(
-                    width: 200,
-                    height: 40,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          fillColor: white,
-                          filled: true,
-                          border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black))),
-                    )),
-              )
+                  padding: const EdgeInsets.only(right: 50),
+                  child: Text(
+                    time.utctime(),
+                    style: FontFamily.font2,
+                  ))
             ],
           ),
           body: Row(

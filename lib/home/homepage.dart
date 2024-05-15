@@ -1,6 +1,6 @@
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
-import 'package:dthlms/pages/StudyMaterial/StudyMaterial.dart';
+import 'package:dthlms/pages/StudyMaterial/StudyMaterialDashboard.dart';
 import 'package:dthlms/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -91,7 +91,9 @@ class _HomePageState extends State<HomePage> {
                       child: InkWell(
                         onTap: () {
                           get_obj.page_index.value = 2;
-                          Get.offAll(() => StudyMaterialPdf('Study Material'),
+                          Get.offAll(
+                                  () =>
+                                      StudyMaterialDashboard('Study Material'),
                                   transition: Transition.leftToRight)
                               ?.then((value) => get_obj.page_index.value = 0);
                         },

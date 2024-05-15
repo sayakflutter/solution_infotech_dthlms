@@ -2,13 +2,12 @@ import 'package:dthlms/color/color.dart';
 import 'package:dthlms/pages/StudyMaterial/StudyMaterial.dart';
 import 'package:dthlms/pages/utctime.dart';
 import 'package:dthlms/widget/drawerWidget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../font/font_family.dart';
 
+// ignore: must_be_immutable
 class StudyMaterialDashboard extends StatefulWidget {
   String name;
   StudyMaterialDashboard(
@@ -29,9 +28,12 @@ class _StudyMaterialDashboardState extends State<StudyMaterialDashboard> {
         backgroundColor: ColorPage.bgcolor,
         appBar: AppBar(
           actions: [
-            Text(
-              time.utctime(),
-              style: FontFamily.font2,
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Text(
+                time.utctime(),
+                style: FontFamily.font2,
+              ),
             )
           ],
           // leading: IconButton(
