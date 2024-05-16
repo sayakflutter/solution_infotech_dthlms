@@ -11,7 +11,6 @@ import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:pspdfkit_flutter/pspdfkit.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfEdit extends StatefulWidget {
   const PdfEdit({super.key});
@@ -51,7 +50,7 @@ class _PdfEditState extends State<PdfEdit> {
     }
   }
 
-  String url = "https://icseindia.org/document/sample.pdf";
+  String url = "https://pspdfkit.com/downloads/pspdfkit-web-demo.pdf";
   Future downloadcrete(url, Directory d, filename, bool check) async {
     showDialog(
         context: context,
@@ -127,8 +126,6 @@ class _PdfEditState extends State<PdfEdit> {
   }
 
   bool x = false;
-  final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
-  final PdfViewerController _pdfViewerController = PdfViewerController();
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

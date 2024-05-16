@@ -174,10 +174,11 @@ class _ForgotScreenState extends State<ForgotScreen> {
                                               scheme: 'https',
                                               host: 'mail.google.com',
                                               path: '/mail/u/0/',
-                                              queryParameters: {
-                                                'authuser': '0'
-                                              }, // Change '0' to the account index you want to open
+                                              // queryParameters: {
+                                              //   'authuser': '0'
+                                              // }, // Change '0' to the account index you want to open
                                             );
+
                                             await launchUrlString(
                                                 gmailUrl.toString());
                                           },

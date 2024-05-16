@@ -43,9 +43,13 @@ class _OTPScreenState extends State<OTPScreen> {
           .then((value) {
         print(value);
         key = value;
+        if (key == 'error') {
+          Get.back();
+        }
       });
     } catch (e) {
       print(e);
+      Get.back();
     }
   }
 

@@ -342,7 +342,7 @@ class _HomePageState extends State<HomePage> {
                                           Color.fromRGBO(0, 234, 255, 1)
                                         ], end: Alignment.bottomRight)),
                                     child: Image.asset(
-                                      'assets/file.png',
+                                      'assets/Theory exam.png',
                                       width: size,
                                       color: Colors.white,
                                     ))

@@ -218,5 +218,6 @@ Future signupcodegenerate(
       text: e.toString(),
       positiveButtonTitle: "Ok",
     );
+    return 'error';
   }
 }

@@ -1,4 +1,5 @@
-import 'dart:async';
+// ignore_for_file: file_names, must_be_immutable, no_leading_underscores_for_local_identifiers
+
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -6,15 +7,14 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/key/key.dart';
 import 'package:dthlms/pdfview/pdfview.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
+
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
@@ -56,13 +56,13 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
           title: Text(
             widget.name,
             style: FontFamily.font2,
-            textScaler: TextScaler.linear(1.5),
+            textScaler: const TextScaler.linear(1.5),
           ),
         ),
         body: Row(
           children: [
             const DrawerWidget(),
-            Container(
+            SizedBox(
               width: 700,
               child: ListView.builder(itemBuilder: (context, index) {
                 return Padding(
@@ -93,7 +93,7 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
                       subtitle: Text(
                         '1.3 mb Expiry:25-05-14',
                         style: GoogleFonts.kadwa(
-                            textStyle: TextStyle(color: Colors.grey)),
+                            textStyle: const TextStyle(color: Colors.grey)),
                       ),
                       trailing: IconButton(
                           onPressed: () async {
@@ -129,12 +129,12 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
                       : SingleChildScrollView(
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                   // width: MediaQuery.sizeOf(context).width,
                                   height:
                                       MediaQuery.sizeOf(context).height - 50,
                                   child: SfPdfViewer.memory(
-                                    decryptedPdfData!,
+                                    decryptedPdfData,
                                   )),
                             ],
                           ),
@@ -145,16 +145,6 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
       ),
     );
   }
-
-  // Future pdfdownload() async {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return CircularProgressIndicator.adaptive();
-  //       });
-
-  //   getx.pdfview.value = false;
-  // }
 
   String filename = "encrypt.pdf";
   late Directory appDocDir;
@@ -190,7 +180,7 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
     }
   }
 
-  String url = "https://icseindia.org/document/sample.pdf";
+  String url = "https://pspdfkit.com/downloads/pspdfkit-web-demo.pdf";
   Future downloadcrete(url, Directory d, filename, bool check) async {
     showDialog(
         context: context,
@@ -231,21 +221,9 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
     }
     Navigator.pop(context);
     print('${d.path}/$filename.aes');
-
-    // await Get.defaultDialog(
-    //   barrierDismissible: false,
-    //   title: 'PDF file',
-    //   content: const Text(
-    //     'Pdf file encryption successfull',
-    //   ),
-    //   onConfirm: () {
-    //     Get.back();
-    //   },
-    // );
-    // OpenFile.open("${d.path}/$filename.aes");
   }
 
-  Uint8List? decryptedPdfData;
+  Uint8List decryptedPdfData = Uint8List(0);
   convertdecryptfile(Directory d, filename) async {
     showDialog(
         context: context,
@@ -263,8 +241,6 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
   }
 
   bool x = false;
-  final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
-  final PdfViewerController _pdfViewerController = PdfViewerController();
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -277,17 +253,11 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
 //
 
   permission() async {
-    PermissionStatus status;
     if (Platform.isAndroid) {
       final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
       final AndroidDeviceInfo info = await deviceInfoPlugin.androidInfo;
       if ((info.version.sdkInt) >= 33) {
-        status = await Permission.manageExternalStorage.request();
-      } else {
-        status = await Permission.storage.request();
-      }
-    } else {
-      status = await Permission.storage.request();
-    }
+      } else {}
+    } else {}
   }
 }

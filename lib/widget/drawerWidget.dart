@@ -2,7 +2,6 @@
 
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
-import 'package:dthlms/pages/StudyMaterial/StudyMaterial.dart';
 import 'package:dthlms/pages/StudyMaterial/StudyMaterialDashboard.dart';
 import 'package:dthlms/pages/dashboard.dart';
 import 'package:dthlms/pages/profile/profile.dart';
