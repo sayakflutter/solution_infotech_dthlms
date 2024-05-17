@@ -100,8 +100,8 @@ class _MyClassContentState extends State<MyClassContent>
                       : SingleChildScrollView(
                         child: Column(
                           children: [
-                            SizedBox(
-                                // width: MediaQuery.sizeOf(context).width,
+                            SizedBox(width: MediaQuery.sizeOf(context).width - 1200,
+                                
                                 height:
                                     MediaQuery.sizeOf(context).height - 50,
                                     child: Video(controller:controller ),
