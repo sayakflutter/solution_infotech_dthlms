@@ -13,7 +13,7 @@ void main() async {
   if (Platform.isWindows) {
     setWindowMinSize(const Size(1400, 1000));
   }
- MediaKit.ensureInitialized();
+  MediaKit.ensureInitialized();
   runApp(
     const MyApp(),
   );
@@ -36,44 +36,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-// class SecureWindow extends StatefulWidget {
-//   @override
-//   _SecureWindowState createState() => _SecureWindowState();
-// }
-
-// class _SecureWindowState extends State<SecureWindow> {
-//   bool _isVisible = true;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     SystemChannels.lifecycle.setMessageHandler((msg) {
-//       print("LifecycleEvent: $msg");
-//       if (msg?.contains('resumed') ?? false) {
-//         setState(() => _isVisible = true);
-//       } else if (msg?.contains('paused') ?? false) {
-//         setState(() => _isVisible = false);
-//       }
-//       return Future.value("");
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("Secure Window Example"),
-//       ),
-//       body: Center(
-//         child: _isVisible
-//             ? Text('This is sensitive content visible only when the app is in focus.')
-//             : Container(color: Colors.grey.shade800),
-//       ),
-//     );
-//   }
-// }
