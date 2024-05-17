@@ -25,7 +25,6 @@ import 'package:path_provider/path_provider.dart';
 // import 'package:permission_handler/permission_handler.dart';
 // import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-
 import 'package:http/http.dart' as http;
 import '../../../color/color.dart';
 
@@ -111,46 +110,51 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                               borderRadius: BorderRadius.circular(15)),
                           // elevation: 0,
                           child: ListTile(
-                              leading: Container(
-                                //  width: MediaQuery.sizeOf(context).width-100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        child: Image.asset(
-                          'assets/video2.png',
-                          width: 30,
-                        ),
-                      ),
-                       title: Text(
-                        'google-video.mp4',
-                         overflow: TextOverflow.ellipsis,
-                        style: FontFamily.font4,
-                      ),
-                      subtitle: Text(
-                         overflow: TextOverflow.ellipsis,
-                        '7.3 mb Expiry:28-06-14',
-                        style: GoogleFonts.kadwa(
-                            textStyle: const TextStyle(color: Colors.grey)),
-                      ),
-                            
+                            leading: Container(
+                              //  width: MediaQuery.sizeOf(context).width-100,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                              padding: const EdgeInsets.all(10),
+                              child: Image.asset(
+                                'assets/video2.png',
+                                width: 30,
+                              ),
+                            ),
+                            title: Text(
+                              'google-video.mp4',
+                              overflow: TextOverflow.ellipsis,
+                              style: FontFamily.font4,
+                            ),
+                            subtitle: Text(
+                              overflow: TextOverflow.ellipsis,
+                              '7.3 mb Expiry:28-06-14',
+                              style: GoogleFonts.kadwa(
+                                  textStyle:
+                                      const TextStyle(color: Colors.grey)),
+                            ),
                             trailing: IconButton(
-                                onPressed: ()async {
-                                   await FlutterPlatformAlert.playAlertSound();
-                                   final clickButton= await FlutterPlatformAlert.showAlert(windowTitle: "Download", text: "you want to download the video file",
-                                   alertStyle: AlertButtonStyle.yesNoCancel,iconStyle: IconStyle.information,
-                                   options: PlatformAlertOptions(),
-                                   );
-                                   if(clickButton==AlertButton.yesButton){
-                                     filelocationpath = await getExternalvisibledir;
-                                     downloadcretevideo(url,filelocationpath, filename, true).whenComplete(()=>convertdecryptfile(filelocationpath, filename).whenComplete((){
-                                      getx.videoplayer.value=false;
-                                     }));
-
-                                   }
-
-
-
+                                onPressed: () async {
+                                  await FlutterPlatformAlert.playAlertSound();
+                                  final clickButton =
+                                      await FlutterPlatformAlert.showAlert(
+                                    windowTitle: "Download",
+                                    text: "you want to download the video file",
+                                    alertStyle: AlertButtonStyle.yesNoCancel,
+                                    iconStyle: IconStyle.information,
+                                    options: PlatformAlertOptions(),
+                                  );
+                                  if (clickButton == AlertButton.yesButton) {
+                                    filelocationpath =
+                                        await getExternalvisibledir;
+                                    downloadcretevideo(url, filelocationpath,
+                                            filename, true)
+                                        .whenComplete(() => convertdecryptfile(
+                                                    filelocationpath, filename)
+                                                .whenComplete(() {
+                                              getx.videoplayer.value = false;
+                                            }));
+                                  }
                                 },
                                 icon: const Icon(
                                   Icons.download_for_offline_sharp,
@@ -168,8 +172,6 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
       ),
     );
   }
-
-
 
   String filename = "encrypt_video.mp4";
   late Directory appDocDir;
@@ -205,7 +207,8 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
     }
   }
 
-  String url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  String url =
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   Future downloadcretevideo(url, Directory d, filename, bool check) async {
     showDialog(
         context: context,
@@ -263,8 +266,6 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
     setState(() {});
     Navigator.pop(context);
     //  getx.videoplayer.value = false;
-   
-
   }
 
   bool x = false;

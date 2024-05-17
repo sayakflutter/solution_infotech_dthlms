@@ -2,7 +2,9 @@ import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/pages/utctime.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:media_kit/media_kit.dart';
@@ -22,7 +24,17 @@ class MyClassContent extends StatefulWidget {
 
 class _MyClassContentState extends State<MyClassContent>
     with TickerProviderStateMixin {
-  late final player = Player();
+  late final player = Player(
+    configuration: PlayerConfiguration(
+      libassAndroidFont: 'Sayak',
+
+      // Supply your options:
+      title: 'My awesome package:media_kit application',
+      ready: () {
+        print('The initialization is complete.');
+      },
+    ),
+  );
 
   Getx getx = Get.put(Getx());
   final white = const Color.fromRGBO(250, 250, 250, 1);
@@ -49,14 +61,29 @@ class _MyClassContentState extends State<MyClassContent>
   @override
   void initState() {
     print(controller);
-    player.open(
-      playable,
-      play: false,
-    );
+    player.open(playable, play: false);
 
     player.setVolume(100);
+    // player.setRate(1.5);
+    // player.setPitch(1.2);
     // TODO: implement initState
-
+    player.stream.playing.listen(
+      (bool playing) {
+        if (playing) {
+          // Playing.
+        } else {
+          // Paused.
+        }
+      },
+    );
+    player.stream.position.listen(
+      (Duration position) {
+        setState(() {
+          // Update UI.
+        });
+      },
+    );
+    player.setShuffle(true);
     super.initState();
   }
 
@@ -118,18 +145,11 @@ class _MyClassContentState extends State<MyClassContent>
             children: [
               const DrawerWidget(),
               SizedBox(
-                  width: MediaQuery.sizeOf(context).width - 1200,
+                  width: MediaQuery.sizeOf(context).width - 1150,
+                  // height: 1000,
                   child: const MyClassVideoContent()),
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      // width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height - 50,
-                      child: Video(controller: controller),
-                    ),
-                  ],
-                ),
+              Expanded(
+                child: SizedBox(child: Video(controller: controller)),
               )
             ],
           ),
