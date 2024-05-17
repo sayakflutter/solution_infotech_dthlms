@@ -36,6 +36,7 @@ dependencies:
   media_kit_video:
   media_kit_libs_video:
   media_kit_libs_audio:
+  flutter_vlc_player:
   # video_player_media_kit:
   flutter_platform_alert: ^0.5.1
   animated_button_bar: ^1.0.0

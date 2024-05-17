@@ -138,8 +138,10 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                                    options: PlatformAlertOptions(),
                                    );
                                    if(clickButton==AlertButton.yesButton){
-                                    //  filelocationpath = await getExternalvisibledir;
-                                    //  downloadcretevideo(url,filelocationpath, filename, true).whenComplete(()=>convertdecryptfile(filelocationpath, filename));
+                                     filelocationpath = await getExternalvisibledir;
+                                     downloadcretevideo(url,filelocationpath, filename, true).whenComplete(()=>convertdecryptfile(filelocationpath, filename).whenComplete((){
+                                      getx.videoplayer.value=false;
+                                     }));
 
                                    }
 
@@ -165,7 +167,7 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
 
 
 
-  String filename = "encrypt.pdf";
+  String filename = "encrypt_video.mp4";
   late Directory appDocDir;
   Future<Directory> get getExternalvisibledir async {
     if (Platform.isAndroid) {
@@ -256,7 +258,8 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
     print('file decrypted successfully.......$decryptedvideoData ');
     setState(() {});
     Navigator.pop(context);
-    getx.videoplayer.value = false;
+    //  getx.videoplayer.value = false;
+   
 
   }
 

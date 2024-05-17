@@ -33,7 +33,7 @@ class _MyClassContentState extends State<MyClassContent>
   @override
   void initState() {
     // TODO: implement initState
-    player.open(Media('http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'));
+    // player.open(Media('http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'));
     super.initState();
   }
   @override
@@ -89,30 +89,33 @@ class _MyClassContentState extends State<MyClassContent>
               SizedBox(
                   width: MediaQuery.sizeOf(context).width - 1200,
                   child: const MyClassVideoContent()),
-              Obx(
+
+
+                  Obx(
               () => Expanded(
                   child: getx.videoplayer.value
                       ? Container(
                           color: Colors.black,
                         )
                       : SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                  // width: MediaQuery.sizeOf(context).width,
-                                  height:
-                                      MediaQuery.sizeOf(context).height - 50,
-                                      child: Video(controller:controller ),
-
-
-
-
-                                  
-                                  ),
-                            ],
-                          ),
-                        )),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                                // width: MediaQuery.sizeOf(context).width,
+                                height:
+                                    MediaQuery.sizeOf(context).height - 50,
+                                    child: Video(controller:controller ),
+                        
+                        
+                        
+                        
+                                
+                                ),
+                          ],
+                        ),
+                      )),
             )
+              
             ],
           ),
         ),
