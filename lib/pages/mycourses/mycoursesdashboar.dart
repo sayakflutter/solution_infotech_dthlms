@@ -120,31 +120,17 @@ class _MyClassContentState extends State<MyClassContent>
               SizedBox(
                   width: MediaQuery.sizeOf(context).width - 1200,
                   child: const MyClassVideoContent()),
-              Expanded(
-                  child: SingleChildScrollView(
+              SingleChildScrollView(
                 child: Column(
                   children: [
                     SizedBox(
-                        // width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.sizeOf(context).height - 50,
-                        child: Video(
-                          // fit: BoxFit.fill,
-                          controller: controller,
-
-                          // aspectRatio: 30,
-                          // controls: (state) {
-                          //   return Dialog(
-                          //     child: Text('Video'),
-                          //   );
-                          // },
-                          fill: Colors.black,
-                          // onEnterFullscreen: () {
-                          //   return Future(() => null);
-                          // },
-                        )),
+                      // width: MediaQuery.sizeOf(context).width,
+                      height: MediaQuery.sizeOf(context).height - 50,
+                      child: Video(controller: controller),
+                    ),
                   ],
                 ),
-              )),
+              )
             ],
           ),
         ),

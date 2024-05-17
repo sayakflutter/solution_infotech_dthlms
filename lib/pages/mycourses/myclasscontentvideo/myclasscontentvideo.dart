@@ -88,6 +88,7 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                 child: Column(
                   children: [
                     Container(
+                      // color: Colors.red,
                       alignment: Alignment.center,
                       width: MediaQuery.sizeOf(context).width,
                       child: Text(
@@ -111,6 +112,7 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                           // elevation: 0,
                           child: ListTile(
                               leading: Container(
+                                //  width: MediaQuery.sizeOf(context).width-100,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(80),
                         ),
@@ -122,9 +124,11 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                       ),
                        title: Text(
                         'google-video.mp4',
-                        style: FontFamily.mobilefont,
+                         overflow: TextOverflow.ellipsis,
+                        style: FontFamily.font4,
                       ),
                       subtitle: Text(
+                         overflow: TextOverflow.ellipsis,
                         '7.3 mb Expiry:28-06-14',
                         style: GoogleFonts.kadwa(
                             textStyle: const TextStyle(color: Colors.grey)),
