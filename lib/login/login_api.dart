@@ -28,16 +28,17 @@ Future loginApi(
     'franchiseId': 1
   };
 
-  final http.Response res =
+  final res =
       await http.post(Uri.https(UrlApi.mainurl, '/api/auth/login'),
           headers: <String, String>{
             'Content-Type': 'application/json',
           },
           body: json.encode(data));
 
-  print(res.body);
+
 
   var jsondata = json.decode(res.body);
+  print(jsondata.body);
   if (res.statusCode == 200 &&
       jsondata['statusCode'] == 200 &&
       jsondata['isSuccess'] == true) {
@@ -72,7 +73,10 @@ Future loginApi(
       positiveButtonTitle: "Ok",
     );
   }
-  // } catch (e) {}
+  // } catch (e) {
+  //   print(e);
+  //   Get.back();
+  // }
 }
 
 Future signupApi(BuildContext context, String signupuser, String signupname,

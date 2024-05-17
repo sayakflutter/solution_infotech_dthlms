@@ -22,4 +22,10 @@ class FontFamily {
     color: Colors.white,
     fontSize: 15,
   ));
+
+  static var font4 = GoogleFonts.outfit(
+      textStyle: const TextStyle(
+    color: Colors.black,
+    fontSize: 15,
+  ));
 }

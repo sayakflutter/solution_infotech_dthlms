@@ -19,4 +19,5 @@ class Getx extends GetxController {
   RxBool forgetpassword1 = false.obs;
   RxBool forgetpassword2 = false.obs;
   RxBool pdfview = true.obs;
+  RxBool videoplayer = false.obs;
 }
