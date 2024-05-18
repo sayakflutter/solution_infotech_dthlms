@@ -11,7 +11,7 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
-import '../google/googlesign.dart';
+
 
 class DthLmsLogin extends StatefulWidget {
   const DthLmsLogin({super.key});
@@ -1788,8 +1788,7 @@ class _DthLmsLoginState extends State<DthLmsLogin> {
 
                                             // color: ColorPage.colorgrey,
                                             onPressed: () {
-                                              final obj = GoogleSignup();
-                                              obj.signin();
+                                             
                                             },
                                             icon: Image.asset(
                                               'assets/google.png',
