@@ -133,11 +133,12 @@ class _MyClassContentState extends State<MyClassContent>
             ),
             actions: [
               Padding(
-                  padding: const EdgeInsets.only(right: 50),
-                  child: Text(
-                    time.utctime(),
-                    style: FontFamily.font2,
-                  ))
+                padding: const EdgeInsets.only(right: 50),
+                child: Text(
+                  time.utctime(),
+                  style: FontFamily.font2,
+                ),
+              )
             ],
           ),
           body: Row(
@@ -148,7 +149,9 @@ class _MyClassContentState extends State<MyClassContent>
                   // height: 1000,
                   child: const MyClassVideoContent()),
               Expanded(
-                child: SizedBox(),
+                child: Container(
+                  color: Colors.black,
+                ),
               )
             ],
           ),
