@@ -3,7 +3,7 @@ import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 
 class  ClsErrorMsg
 {
- static fnErrorDialog(BuildContext context,error) async
+ static fnErrorDialog(BuildContext context,error,res) async
   {
        await FlutterPlatformAlert.playAlertSound();
 

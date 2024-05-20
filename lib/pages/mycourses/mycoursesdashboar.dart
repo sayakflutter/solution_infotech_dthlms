@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
@@ -110,8 +111,8 @@ class _MyClassContentState extends State<MyClassContent>
                   Icons.arrow_back,
                   color: ColorPage.white,
                 )),
-            titleTextStyle: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+            titleTextStyle:  TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize:ClsFontsize.Small ),//20
             backgroundColor: ColorPage.appbarcolor,
             title: Row(
               children: [

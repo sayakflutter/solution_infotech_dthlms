@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/color/color.dart';
 import 'package:flutter/material.dart';
 
@@ -17,14 +18,14 @@ class ButtonWidget extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Row(
+             Row(
               children: [
                 Text(
                   'ALL ONLINE',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25),
+                      fontSize: ClsFontsize.Large+1,),//25
                 ),
               ],
             ),
