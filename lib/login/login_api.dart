@@ -30,9 +30,10 @@ Future loginApi(
             'Content-Type': 'application/json',
           },
           body: json.encode(logindata));
+
   var jsondata = json.decode(res.body);
+  
   if (res.statusCode == 200 &&
-      jsondata['statusCode'] == 200 &&
       jsondata['isSuccess'] == true) {
     final userdata = DthloginUserDetails(
         email: jsondata['result']['email'],
@@ -44,10 +45,9 @@ Future loginApi(
     Get.to(() => const Dashboard());
   } else {
     Get.back();
-    print(jsondata);
-    ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages']);
+    ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages'],res);
   }
-  
+
 }
 
 Future signupApi(BuildContext context, String signupuser, String signupname,
