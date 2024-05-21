@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/pages/utctime.dart';
@@ -56,7 +57,7 @@ class _ProfileState extends State<Profile> {
                   'Log Out',
                   style: GoogleFonts.kadwa(
                       textStyle:
-                          const TextStyle(fontSize: 20, color: Colors.white)),
+                           TextStyle(fontSize: ClsFontsize.Small, color: Colors.white)),//20
                 ))
           ],
           backgroundColor: ColorPage.appbarcolor,

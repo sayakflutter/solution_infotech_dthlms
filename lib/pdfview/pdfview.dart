@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/showpdf/showpdf.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,9 +51,9 @@ class _PdfViewState extends State<PdfView> {
               title: _isSliverAppBarExpanded
                   ? Text('All Online',
                       style: GoogleFonts.outfit(
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                         // color: ColorPage.colorgrey,
-                        fontSize: 20,
+                        fontSize: ClsFontsize.Small, //20
                       )))
                   : null,
               pinned: true,
@@ -62,7 +63,7 @@ class _PdfViewState extends State<PdfView> {
 
               flexibleSpace: _isSliverAppBarExpanded
                   ? null
-                  : const Card(
+                  : Card(
                       elevation: 40,
                       // surfaceTintColor: Colors.red,
 
@@ -76,7 +77,7 @@ class _PdfViewState extends State<PdfView> {
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 25),
+                              fontSize: ClsFontsize.Large + 1), //25
                         ),
                         // background: Text('data'),
                       ),
@@ -104,11 +105,12 @@ class _PdfViewState extends State<PdfView> {
                           'assets/file.png',
                           width: 40,
                         ),
-                        title: const Text(
+                        title: Text(
                           overflow: TextOverflow.ellipsis,
                           'Solution infotech  pdf file.pdf ',
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w600),
+                              fontSize: ClsFontsize.ExtraSmall,
+                              fontWeight: FontWeight.w600), //14
 
                           // style: FontStylePage.font,
                         ),

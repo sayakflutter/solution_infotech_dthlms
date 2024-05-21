@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/home/homepage.dart';
@@ -48,12 +49,12 @@ class _DashboardState extends State<Dashboard> {
                 ))
           ],
           backgroundColor: ColorPage.appbarcolor,
-          title: const Card(
+          title:  Card(
             child: Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
                 'Hi, Sayak Mishra',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: ClsFontsize.Small),//20
               ),
             ),
           ),

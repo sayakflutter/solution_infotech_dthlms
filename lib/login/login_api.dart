@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:dthlms/errormsg/errorhandling.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/login/loginmodel.dart';
+import 'package:dthlms/map/apiobject.dart';
 import 'package:dthlms/pages/dashboard.dart';
 import 'package:dthlms/url/api_url.dart';
 // import 'package:flutter/foundation.dart';
@@ -21,26 +23,17 @@ Future loginApi(
       builder: (context) {
         return const Center(child: CircularProgressIndicator.adaptive());
       });
-  // try {
-  Map<String, dynamic> data = {
-    'userName': loginemail,
-    'password': password,
-    'franchiseId': 1
-  };
-
+  var logindata = ClsMap.objLoginApi(loginemail, password, otp);
   final res =
-      await http.post(Uri.https(UrlApi.mainurl, '/api/auth/login'),
+      await http.post(Uri.https(ClsUrlApi.mainurl, ClsUrlApi.loginEndpoint),
           headers: <String, String>{
             'Content-Type': 'application/json',
           },
-          body: json.encode(data));
-
-
+          body: json.encode(logindata));
 
   var jsondata = json.decode(res.body);
-  print(jsondata.body);
+  
   if (res.statusCode == 200 &&
-      jsondata['statusCode'] == 200 &&
       jsondata['isSuccess'] == true) {
     final userdata = DthloginUserDetails(
         email: jsondata['result']['email'],
@@ -50,33 +43,11 @@ Future loginApi(
 
     Get.back();
     Get.to(() => const Dashboard());
-    // await FlutterPlatformAlert.playAlertSound();
-
-    // final result = await FlutterPlatformAlert.showCustomAlert(
-    //   windowTitle: 'Login',
-    //   text: 'Login Sucessfull',
-    //   positiveButtonTitle: "Ok",
-    // );
-    // if (CustomButton.positiveButton == result) {
-    //   Get.to(() => const Dashboard());
-    // } else {}
   } else {
-    print(res.statusCode);
-
     Get.back();
-    await FlutterPlatformAlert.playAlertSound();
-
-    // ignore: unused_local_variable
-    final result = await FlutterPlatformAlert.showCustomAlert(
-      windowTitle: 'Login',
-      text: 'Login failed',
-      positiveButtonTitle: "Ok",
-    );
+    ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages'],res);
   }
-  // } catch (e) {
-  //   print(e);
-  //   Get.back();
-  // }
+
 }
 
 Future signupApi(BuildContext context, String signupuser, String signupname,
@@ -89,25 +60,14 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
           return const Center(child: CircularProgressIndicator.adaptive());
         });
 
-    Map<String, dynamic> data = {
-      'userName': signupuser,
-      'password': signuppassword,
-      'franchiseId': 1,
-      'phoneNumber': signupphno,
-      'firstName': signupname,
-      'lastName': 'x',
-      'email': signupemail,
-      'emailCode': otp,
-      'phoneNumberCode': '2620036',
-    };
+    var signupdata = ClsMap.objSignupApi(signupuser, signupname, signupemail,
+        signuppassword, signupphno, key, otp);
     final http.Response res = await http.post(
-        Uri.https(UrlApi.mainurl, 'api/auth/studentregister/$key'),
+        Uri.https(ClsUrlApi.mainurl, '${ClsUrlApi.signupEndpoint}$key'),
         headers: <String, String>{
           'Content-Type': 'application/json',
         },
-        body: jsonEncode(data));
-
-    print(res.body);
+        body: jsonEncode(signupdata));
 
     var jsondata = json.decode(res.body);
     if (res.statusCode == 200 &&
@@ -168,8 +128,8 @@ Future signupcodegenerate(
             child: CircularProgressIndicator.adaptive(),
           );
         });
-    var response = await http
-        .get(Uri.https(UrlApi.mainurl, '/api/auth/getUserConfirmationType'));
+    var response = await http.get(Uri.https(
+        ClsUrlApi.mainurl, ClsUrlApi.getUserConfirmationTypeEndpoint));
     var json = jsonDecode(response.body);
 
     print(response.body);
@@ -180,12 +140,12 @@ Future signupcodegenerate(
         "email": signupemail,
         "franchiseId": 1
       };
-      var responsecode =
-          await http.post(Uri.https(UrlApi.mainurl, '/api/auth/generateCode'),
-              headers: <String, String>{
-                'Content-Type': 'application/json',
-              },
-              body: jsonEncode(datacode));
+      var responsecode = await http.post(
+          Uri.https(ClsUrlApi.mainurl, ClsUrlApi.generateCodeEndpoint),
+          headers: <String, String>{
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(datacode));
       var json = jsonDecode(responsecode.body);
 
       print(responsecode.body);

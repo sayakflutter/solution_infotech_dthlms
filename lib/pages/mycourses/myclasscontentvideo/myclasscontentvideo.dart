@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:flutter/material.dart';
@@ -52,9 +53,9 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                   Expanded(
                     child: TextFormField(
                       decoration: InputDecoration(
-                          hintStyle: const TextStyle(
+                          hintStyle:  TextStyle(
                               color: Color.fromRGBO(152, 150, 138, 1),
-                              fontSize: 15),
+                              fontSize:ClsFontsize.ExtraSmall-1 ),
                           hintText: 'Search',
                           fillColor: ColorPage.white,
                           filled: true,
@@ -94,10 +95,10 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
                         'Class Lecture - Toady - TVM',
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.outfit(
-                            textStyle: const TextStyle(
+                            textStyle:  TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 25)),
+                                fontSize:ClsFontsize.Large+1)),
                       ),
                     ),
                     for (int i = 0; i < 5; i++)

@@ -1,3 +1,4 @@
+import 'package:dthlms/ThemeData/FontSize/FontSize.dart';
 import 'package:dthlms/color/color.dart';
 import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
@@ -108,8 +109,9 @@ class _ForgotScreenState extends State<ForgotScreen> {
                                         Text(
                                           'We sent you an email to abcd@gmail.com',
                                           style: GoogleFonts.outfit(
-                                              textStyle: const TextStyle(
-                                            fontSize: 14,
+                                              textStyle: TextStyle(
+                                            fontSize:
+                                                ClsFontsize.ExtraSmall - 2,
                                           )),
                                         )
                                       ],
@@ -208,10 +210,12 @@ class _ForgotScreenState extends State<ForgotScreen> {
                                           label: Text(
                                             'Back to Login',
                                             style: GoogleFonts.outfit(
-                                                textStyle: const TextStyle(
+                                                textStyle: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 15)),
+                                                    fontSize:
+                                                        ClsFontsize.ExtraSmall -
+                                                            1)),
                                           ))
                                     ],
                                   ),
