@@ -1,13 +1,9 @@
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/pages/utctime.dart';
 import 'package:dthlms/widget/drawerWidget.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../color/color.dart';
 import '../../font/font_family.dart';
 import '../../widget/buttonwidget.dart';

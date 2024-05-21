@@ -236,13 +236,13 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
     if (check == true) {
       print('Data downloading......');
       var res = await http.get(Uri.parse(url));
-      List<int> encResult = await encrypte(res.bodyBytes);
+      List<int> encResult = await encryptPdf(res.bodyBytes);
       String p = await writedata(encResult, "${d.path}/$filename.aes");
       print('file encryption successfully $p');
     } else {
       final File file = File(url);
       final List<int> bytes = await file.readAsBytes();
-      final List<int> encryptedBytes = await encrypte(bytes);
+      final List<int> encryptedBytes = await decryptPdf(bytes);
       // final File encryptedFile = File();
       String p = await writedata(encryptedBytes, "${d.path}/$filename.aes");
       print('File encrypted successfully: $p');
@@ -259,7 +259,7 @@ class _MyClassVideoContentState extends State<MyClassVideoContent> {
           return const Center(child: CircularProgressIndicator());
         });
     Uint8List encdata = await readData("${d.path}/$filename.aes");
-    decryptedvideoData = await decrypteData(encdata);
+    decryptedvideoData = await decryptPdf(encdata);
     // String p = await _writeData(plaindata, "${d.path}/$filename");
 
     print('file decrypted successfully.......$decryptedvideoData ');

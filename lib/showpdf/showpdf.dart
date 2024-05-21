@@ -75,22 +75,22 @@ class _PdfEditState extends State<PdfEdit> {
           );
         });
 
-    if (check == true) {
-      print('Data downloading......');
-      var res = await http.get(Uri.parse(url));
-      List<int> encResult = await encrypte(res.bodyBytes);
-      String p = await writedata(encResult, "${d.path}/$filename.aes");
-      print('file encryption successfully $p');
-    } else {
-      final File file = File(url);
-      final List<int> bytes = await file.readAsBytes();
-      final List<int> encryptedBytes = await encrypte(bytes);
-      // final File encryptedFile = File();
-      String p = await writedata(encryptedBytes, "${d.path}/$filename.aes");
-      print('File encrypted successfully: $p');
-    }
-    Navigator.pop(context);
-    print('${d.path}/$filename.aes');
+    // if (check == true) {
+    //   print('Data downloading......');
+    //   var res = await http.get(Uri.parse(url));
+    //   List<int> encResult = await encryptPdf(res.bodyBytes);
+    //   String p = await writedata(encResult, "${d.path}/$filename.aes");
+    //   print('file encryption successfully $p');
+    // } else {
+    //   final File file = File(url);
+    //   final List<int> bytes = await file.readAsBytes();
+    //   final List<int> encryptedBytes = await encrypte(bytes);
+    //   // final File encryptedFile = File();
+    //   String p = await writedata(encryptedBytes, "${d.path}/$filename.aes");
+    //   print('File encrypted successfully: $p');
+    // }
+    // Navigator.pop(context);
+    // print('${d.path}/$filename.aes');
 
     // await Get.defaultDialog(
     //   barrierDismissible: false,
@@ -112,8 +112,8 @@ class _PdfEditState extends State<PdfEdit> {
         builder: (context) {
           return const Center(child: CircularProgressIndicator());
         });
-    Uint8List encdata = await readData("${d.path}/$filename.aes");
-    decryptedPdfData = await decrypteData(encdata);
+    // Uint8List encdata = await readData("${d.path}/$filename.aes");
+    // decryptedPdfData = await decrypteData(encdata);
     // String p = await _writeData(plaindata, "${d.path}/$filename");
 
     print('file decrypted successfully.......$decryptedPdfData ');

@@ -16,7 +16,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../../color/color.dart';
@@ -146,7 +145,7 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
     );
   }
 
-  String filename = "encrypt.pdf";
+  String filename = "encrypt1.pdf";
   late Directory appDocDir;
   Future<Directory> get getExternalvisibledir async {
     if (Platform.isAndroid) {
@@ -208,20 +207,20 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
     if (check == true) {
       print('Data downloading......');
       var res = await http.get(Uri.parse(url));
-      List<int> encResult = await encrypte(res.bodyBytes);
-      String p = await writedata(encResult, "${d.path}/$filename.aes");
+      // final bytes = await ;
+      List<int> encResult = await encryptPdf(res.bodyBytes);
+      String p = await writedata(encResult, "${d.path}/$filename");
       print('file encryption successfully $p');
     } else {
       final File file = File(url);
       final List<int> bytes = await file.readAsBytes();
-      final List<int> encryptedBytes = await encrypte(bytes);
+      final List<int> encryptedBytes = await encryptPdf(bytes);
       // final File encryptedFile = File();
-      String p = await writedata(encryptedBytes, "${d.path}/$filename.aes");
+      String p = await writedata(encryptedBytes, "${d.path}/$filename");
       print('File encrypted successfully: $p');
     }
     Navigator.pop(context);
-    print('${d.path}/$filename.aes');
-    
+    print('${d.path}/$filename');
   }
 
   Uint8List decryptedPdfData = Uint8List(0);
@@ -231,9 +230,10 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
         builder: (context) {
           return const Center(child: CircularProgressIndicator());
         });
-    Uint8List encdata = await readData("${d.path}/$filename.aes");
-    decryptedPdfData = await decrypteData(encdata);
-    // String p = await _writeData(plaindata, "${d.path}/$filename");
+
+    Uint8List encdata = await readData("${d.path}/$filename");
+    decryptedPdfData = await decryptPdf(encdata);
+    String p = await writedata(decryptedPdfData, "${d.path}/decrypt.pdf");
 
     print('file decrypted successfully.......$decryptedPdfData ');
     setState(() {});
@@ -262,3 +262,5 @@ class _StudyMaterialPdfState extends State<StudyMaterialPdf> {
     } else {}
   }
 }
+
+
