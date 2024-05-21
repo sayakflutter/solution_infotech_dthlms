@@ -22,263 +22,26 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            color: const Color.fromARGB(255, 208, 225, 238),
-            height: MediaQuery.sizeOf(context).height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      child: InkWell(
-                        onTap: () {
-                          get_obj.page_index.value = 1;
-                          Get.offAll(() => MyClassDashboard('My Courses'),
-                                  transition: Transition.leftToRight)
-                              ?.then((value) => get_obj.page_index.value = 0);
-                        },
-                        child: SizedBox(
-                          height: hight,
-                          width: 349,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          gradient: const LinearGradient(
-                                              colors: [
-                                                Color.fromRGBO(61, 140, 229, 1),
-                                                Color.fromRGBO(0, 234, 255, 1)
-                                              ],
-                                              end: Alignment.bottomRight)),
-                                      child: Image.asset(
-                                        'assets/online-learning.png',
-                                        width: size,
-                                        color: Colors.white,
-                                      ))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    'My Courses',
-                                    style: FontFamily.font,
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      child: InkWell(
-                        onTap: () {
-                          get_obj.page_index.value = 2;
-                          Get.offAll(
-                                  () =>
-                                      StudyMaterialDashboard('Study Material'),
-                                  transition: Transition.leftToRight)
-                              ?.then((value) => get_obj.page_index.value = 0);
-                        },
-                        child: SizedBox(
-                          height: hight,
-                          width: 349,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          gradient: const LinearGradient(
-                                              colors: [
-                                                Color.fromRGBO(247, 97, 161, 1),
-                                                Color.fromRGBO(140, 27, 71, 1)
-                                              ],
-                                              end: Alignment.bottomRight)),
-                                      child: Image.asset(
-                                        'assets/book.png',
-                                        color: Colors.white,
-                                        width: size,
-                                      ))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    'Study Material',
-                                    style: FontFamily.font,
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      child: SizedBox(
-                        height: hight,
-                        width: 349,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                    padding: const EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        gradient: const LinearGradient(colors: [
-                                          Color.fromRGBO(201, 84, 17, 1),
-                                          Color.fromRGBO(228, 10, 2, 1)
-                                        ], end: Alignment.bottomRight)),
-                                    child: Image.asset(
-                                      'assets/instagram-live.png',
-                                      width: size,
-                                      color: Colors.white,
-                                    ))
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  'Live',
-                                  style: FontFamily.font,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      child: SizedBox(
-                        height: hight,
-                        width: 349,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                    padding: const EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        gradient: const LinearGradient(colors: [
-                                          Color.fromRGBO(225, 8, 68, 1),
-                                          Color.fromRGBO(255, 177, 153, 1)
-                                        ], end: Alignment.bottomRight)),
-                                    child: Image.asset(
-                                      'assets/file-upload.png',
-                                      width: size,
-                                      color: Colors.white,
-                                    ))
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  'Online Backup',
-                                  style: FontFamily.font,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      child: InkWell(
-                        onTap: () {
-                          get_obj.page_index.value = 5;
-                          Get.offAll(() => Profile('Profile'),
-                                  transition: Transition.leftToRight)
-                              ?.then((value) => get_obj.page_index.value = 0);
-                        },
-                        child: SizedBox(
-                          height: hight,
-                          width: 349,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          gradient: const LinearGradient(
-                                              colors: [
-                                                Color.fromRGBO(17, 201, 156, 1),
-                                                Color.fromRGBO(0, 227, 29, 1)
-                                              ],
-                                              end: Alignment.bottomRight)),
-                                      child: Image.asset(
-                                        'assets/user-avatar.png',
-                                        width: size,
-                                        color: Colors.white,
-                                      ))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    'Profile',
-                                    style: FontFamily.font,
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
+        body: Container(
+          color: const Color.fromARGB(255, 208, 225, 238),
+          height: MediaQuery.sizeOf(context).height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        get_obj.page_index.value = 1;
+                        Get.offAll(() => MyClassDashboard('My Courses'),
+                                transition: Transition.leftToRight)
+                            ?.then((value) => get_obj.page_index.value = 0);
+                      },
                       child: SizedBox(
                         height: hight,
                         width: 349,
@@ -297,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                                           Color.fromRGBO(0, 234, 255, 1)
                                         ], end: Alignment.bottomRight)),
                                     child: Image.asset(
-                                      'assets/exam.png',
+                                      'assets/online-learning.png',
                                       width: size,
                                       color: Colors.white,
                                     ))
@@ -307,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  'MCQ',
+                                  'My Courses',
                                   style: FontFamily.font,
                                 ),
                               ],
@@ -316,14 +79,18 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
+                  ),
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        get_obj.page_index.value = 2;
+                        Get.offAll(
+                                () => StudyMaterialDashboard('Study Material'),
+                                transition: Transition.leftToRight)
+                            ?.then((value) => get_obj.page_index.value = 0);
+                      },
                       child: SizedBox(
                         height: hight,
                         width: 349,
@@ -338,13 +105,13 @@ class _HomePageState extends State<HomePage> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         gradient: const LinearGradient(colors: [
-                                          Color.fromRGBO(61, 140, 229, 1),
-                                          Color.fromRGBO(0, 234, 255, 1)
+                                          Color.fromRGBO(247, 97, 161, 1),
+                                          Color.fromRGBO(140, 27, 71, 1)
                                         ], end: Alignment.bottomRight)),
                                     child: Image.asset(
-                                      'assets/Theory exam.png',
-                                      width: size,
+                                      'assets/book.png',
                                       color: Colors.white,
+                                      width: size,
                                     ))
                               ],
                             ),
@@ -352,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  'Theory Exam',
+                                  'Study Material',
                                   style: FontFamily.font,
                                 ),
                               ],
@@ -361,9 +128,102 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
+                  ),
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: SizedBox(
+                      height: hight,
+                      width: 349,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(colors: [
+                                        Color.fromRGBO(201, 84, 17, 1),
+                                        Color.fromRGBO(228, 10, 2, 1)
+                                      ], end: Alignment.bottomRight)),
+                                  child: Image.asset(
+                                    'assets/instagram-live.png',
+                                    width: size,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'Live',
+                                style: FontFamily.font,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: SizedBox(
+                      height: hight,
+                      width: 349,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(colors: [
+                                        Color.fromRGBO(225, 8, 68, 1),
+                                        Color.fromRGBO(255, 177, 153, 1)
+                                      ], end: Alignment.bottomRight)),
+                                  child: Image.asset(
+                                    'assets/file-upload.png',
+                                    width: size,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'Online Backup',
+                                style: FontFamily.font,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        get_obj.page_index.value = 5;
+                        Get.offAll(() => Profile('Profile'),
+                                transition: Transition.leftToRight)
+                            ?.then((value) => get_obj.page_index.value = 0);
+                      },
                       child: SizedBox(
                         height: hight,
                         width: 349,
@@ -378,11 +238,11 @@ class _HomePageState extends State<HomePage> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         gradient: const LinearGradient(colors: [
-                                          Color.fromRGBO(50, 141, 245, 1),
-                                          Color.fromRGBO(8, 101, 241, 1)
+                                          Color.fromRGBO(17, 201, 156, 1),
+                                          Color.fromRGBO(0, 227, 29, 1)
                                         ], end: Alignment.bottomRight)),
                                     child: Image.asset(
-                                      'assets/notification.png',
+                                      'assets/user-avatar.png',
                                       width: size,
                                       color: Colors.white,
                                     ))
@@ -392,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  'Notification',
+                                  'Profile',
                                   style: FontFamily.font,
                                 ),
                               ],
@@ -401,10 +261,135 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                  ],
-                )
-              ],
-            ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: SizedBox(
+                      height: hight,
+                      width: 349,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(colors: [
+                                        Color.fromRGBO(61, 140, 229, 1),
+                                        Color.fromRGBO(0, 234, 255, 1)
+                                      ], end: Alignment.bottomRight)),
+                                  child: Image.asset(
+                                    'assets/exam.png',
+                                    width: size,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'MCQ',
+                                style: FontFamily.font,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: SizedBox(
+                      height: hight,
+                      width: 349,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(colors: [
+                                        Color.fromRGBO(61, 140, 229, 1),
+                                        Color.fromRGBO(0, 234, 255, 1)
+                                      ], end: Alignment.bottomRight)),
+                                  child: Image.asset(
+                                    'assets/Theory exam.png',
+                                    width: size,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'Theory Exam',
+                                style: FontFamily.font,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    child: SizedBox(
+                      height: hight,
+                      width: 349,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(colors: [
+                                        Color.fromRGBO(50, 141, 245, 1),
+                                        Color.fromRGBO(8, 101, 241, 1)
+                                      ], end: Alignment.bottomRight)),
+                                  child: Image.asset(
+                                    'assets/notification.png',
+                                    width: size,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'Notification',
+                                style: FontFamily.font,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),

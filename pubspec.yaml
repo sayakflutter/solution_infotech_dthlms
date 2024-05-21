@@ -45,6 +45,10 @@ dependencies:
   icons_launcher: ^2.1.7
   whatsapp_unilink: ^2.1.0
   url_launcher:
+  windows_system_info: ^0.0.4
+  device_meta: ^1.1.26
+  # get_mac_address: ^0.0.2
+  network_info_plus: ^5.0.3
 
   
   syncfusion_flutter_pdfviewer: ^24.2.8
@@ -61,6 +65,9 @@ dependencies:
   pspdfkit_flutter: ^3.10.0
   intl:
   webview_flutter:
+  sqflite_common: ^2.5.4
+  path: 
+  sqflite_common_ffi:
   
   # my_screenshot_prevention_plugin:
     # path: my_screenshot_prevention_plugin
@@ -71,6 +78,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
