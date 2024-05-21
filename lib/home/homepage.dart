@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Container(
           color: const Color.fromARGB(255, 208, 225, 238),
-          height: MediaQuery.sizeOf(context).height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

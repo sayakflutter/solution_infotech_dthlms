@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dthlms/configaration/device/windows_device_info.dart';
 import 'package:dthlms/errormsg/errorhandling.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/login/loginmodel.dart';
@@ -23,7 +24,17 @@ Future loginApi(
       builder: (context) {
         return const Center(child: CircularProgressIndicator.adaptive());
       });
-  var logindata = ClsMap.objLoginApi(loginemail, password, otp);
+  var deviceinfo = await ClsDeviceInfo.initInfo();
+  var logindata = ClsMap.objLoginApi(
+    loginemail,
+    password,
+    otp,
+    deviceinfo[0],
+    deviceinfo[1],
+    deviceinfo[2],
+    deviceinfo[3],
+  );
+  print(logindata);
   final res =
       await http.post(Uri.https(ClsUrlApi.mainurl, ClsUrlApi.loginEndpoint),
           headers: <String, String>{
@@ -32,9 +43,8 @@ Future loginApi(
           body: json.encode(logindata));
 
   var jsondata = json.decode(res.body);
-  
-  if (res.statusCode == 200 &&
-      jsondata['isSuccess'] == true) {
+
+  if (res.statusCode == 200 && jsondata['isSuccess'] == true) {
     final userdata = DthloginUserDetails(
         email: jsondata['result']['email'],
         phoneNumber: jsondata['result']['phoneNumber'],
@@ -45,9 +55,8 @@ Future loginApi(
     Get.to(() => const Dashboard());
   } else {
     Get.back();
-    ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages'],res);
+    ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages'], res);
   }
-
 }
 
 Future signupApi(BuildContext context, String signupuser, String signupname,
@@ -95,25 +104,11 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
 
       print(res.statusCode);
 
-      await FlutterPlatformAlert.playAlertSound();
-
-      // ignore: unused_local_variable
-      final result = await FlutterPlatformAlert.showCustomAlert(
-        windowTitle: 'Login',
-        text: 'Resgistration failed',
-        positiveButtonTitle: "Ok",
-      );
+      ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages'], res);
     }
   } catch (e) {
     Get.back();
-    await FlutterPlatformAlert.playAlertSound();
-
-    // ignore: unused_local_variable
-    final result = await FlutterPlatformAlert.showCustomAlert(
-      windowTitle: 'Login',
-      text: e.toString(),
-      positiveButtonTitle: "Ok",
-    );
+    ClsErrorMsg.fnErrorDialog(context, e, e);
   }
 }
 
@@ -135,11 +130,10 @@ Future signupcodegenerate(
     print(response.body);
 
     if (response.statusCode == 200 && json['isSuccess'] == true) {
-      Map<String, dynamic> datacode = {
-        "phoneNumber": signupphno,
-        "email": signupemail,
-        "franchiseId": 1
-      };
+      var datacode = ClsMap.objSignupconfirmation(
+        signupphno,
+        signupemail,
+      );
       var responsecode = await http.post(
           Uri.https(ClsUrlApi.mainurl, ClsUrlApi.generateCodeEndpoint),
           headers: <String, String>{
@@ -160,28 +154,17 @@ Future signupcodegenerate(
         // print(responsecode.body);
 
         Get.back();
-        await FlutterPlatformAlert.playAlertSound();
-
-        // ignore: unused_local_variable
-        final result = await FlutterPlatformAlert.showCustomAlert(
-          windowTitle: 'Login',
-          text: json["ErrorMessages"].toString(),
-          positiveButtonTitle: "Ok",
-        );
+        ClsErrorMsg.fnErrorDialog(context, json['errorMessages'], responsecode);
 
         return 'error';
       }
+    } else {
+      Get.back();
+      ClsErrorMsg.fnErrorDialog(context, json['errorMessages'], response);
     }
   } catch (e) {
     Get.back();
-    await FlutterPlatformAlert.playAlertSound();
-
-    // ignore: unused_local_variable
-    final result = await FlutterPlatformAlert.showCustomAlert(
-      windowTitle: 'Login1',
-      text: e.toString(),
-      positiveButtonTitle: "Ok",
-    );
+    ClsErrorMsg.fnErrorDialog(context, e, e);
     return 'error';
   }
 }
