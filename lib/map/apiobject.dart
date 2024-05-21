@@ -5,8 +5,8 @@ class ClsMap {
       'userName': loginemail,
       'password': password,
       'franchiseId': 1,
-      'device1': device1,
-      'device2': device2,
+      'device id 1': device1,
+      'device id 2': device2,
       'type': type,
       'configaration': configaration
     };
