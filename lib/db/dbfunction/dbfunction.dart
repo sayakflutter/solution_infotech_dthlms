@@ -1,29 +1,41 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common/sqflite.dart';
 
-import '../initializeDB/initializeDB.dart';
+class DbHandler {
+  Database? _database;
 
-Future<int> insertItem(String name) async {
-  final Database db = await fninitializeDB();
-  return await db.insert('items', {'name': name});
-}
+  Future<Database?> get fninitializeDB async {
+    String path = await getDatabasesPath();
 
-Future<List<Map<String, dynamic>>> retrieveItems() async {
-  final Database db = await fninitializeDB();
-  return await db.query('items');
-}
+    _database = await createtable(path);
+    return _database;
+  }
 
-Future<int> updateItem(int id, String name) async {
-  final Database db = await fninitializeDB();
-  return await db.update('items', {'name': name},
-      where: 'id = ?', whereArgs: [id]);
-}
+  insertData(String username, String pass) async {
+    Database? db = await fninitializeDB;
 
-Future<int> deleteItem(int id) async {
-  final Database db = await fninitializeDB();
-  return await db.delete('items', where: 'id = ?', whereArgs: [id]);
-}
+    return await db!.insert('Login', {'username': username, 'password': pass});
+  }
 
-Future<List<Map<String, dynamic>>> _getUsers() async {
-  final Database db = await fninitializeDB();
-  return await db.query('users') ?? [];
+  readData() async {
+    Database? db = await fninitializeDB;
+    final list = await db!.query('Login');
+    for (int i = 0; i < list.length; i++) {
+      if (kDebugMode) {
+        print('${list[i]}\n');
+      }
+    }
+    return list;
+  }
+
+  createtable(String path) async {
+    return await openDatabase(
+      join(path, 'sayakdb.db'),
+    );
+  }
 }

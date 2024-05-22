@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:permission_handler/permission_handler.dart';
+// import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:pspdfkit_flutter/pspdfkit.dart';
 
@@ -141,18 +141,18 @@ class _PdfEditState extends State<PdfEdit> {
   }
 
   permission() async {
-    PermissionStatus status;
-    if (Platform.isAndroid) {
-      final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-      final AndroidDeviceInfo info = await deviceInfoPlugin.androidInfo;
-      if ((info.version.sdkInt) >= 33) {
-        status = await Permission.manageExternalStorage.request();
-      } else {
-        status = await Permission.storage.request();
-      }
-    } else {
-      status = await Permission.storage.request();
-    }
+    // PermissionStatus status;
+    // if (Platform.isAndroid) {
+    //   final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+    //   final AndroidDeviceInfo info = await deviceInfoPlugin.androidInfo;
+    //   if ((info.version.sdkInt) >= 33) {
+    //     status = await Permission.manageExternalStorage.request();
+    //   } else {
+    //     status = await Permission.storage.request();
+    //   }
+    // } else {
+    //   status = await Permission.storage.request();
+    // }
 
     getpath();
   }

@@ -39,7 +39,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   tooltip: 'Home',
                   onPressed: () {
                     get_obj.page_index.value = 0;
-                    Get.offAll(() => const Dashboard(),
+                    Get.offAll(() => Dashboard(),
                         transition: Transition.noTransition);
                   },
                   icon: Image.asset(

@@ -10,10 +10,6 @@ void main() async {
   sqfliteFfiInit();
   databaseFactory = databaseFactoryFfi;
 
-  // if (Platform.isWindows) {
-  //   setWindowMinSize(const Size(1400, 1000));
-  // }
-
   runApp(
     const MyApp(),
   );
@@ -30,7 +26,6 @@ class _MyAppState extends State<MyApp> {
   Database? _database;
   @override
   void initState() {
-    print(retrieveItems());
     super.initState();
   }
 

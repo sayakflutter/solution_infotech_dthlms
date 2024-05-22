@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:get/get.dart';
 import "package:http/http.dart" as http;
+import "package:dthlms/db/dbfunction/dbfunction.dart";
 
 Future loginApi(
   BuildContext context,
@@ -53,16 +54,36 @@ Future loginApi(
           body: json.encode(logindata));
 
   var jsondata = json.decode(res.body);
-
+  print(jsondata);
   if (res.statusCode == 200 && jsondata['isSuccess'] == true) {
     final userdata = DthloginUserDetails(
         email: jsondata['result']['email'],
         phoneNumber: jsondata['result']['phoneNumber'],
         token: jsondata['result']['token']);
     getObj.loginuserdata.add(userdata);
+    List dbdata = [];
+    if (Platform.isWindows) {
+      await DbHandler().insertData(loginemail, password);
+      dbdata = await DbHandler().readData();
+    }
 
     Get.back();
-    Get.to(() => const Dashboard());
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Get.to(() => Dashboard());
+                    },
+                    child: Text('Ok'))
+              ],
+              title: const Text('Data'),
+              content: Text(
+                dbdata.toString(),
+              ));
+        });
   } else {
     Get.back();
     ClsErrorMsg.fnErrorDialog(context, jsondata['errorMessages'], res);
@@ -128,7 +149,7 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
         positiveButtonTitle: "Ok",
       );
       if (CustomButton.positiveButton == result) {
-        Get.to(() => const Dashboard());
+        Get.to(() => Dashboard());
       } else {}
     } else {
       Get.back();

@@ -30,7 +30,7 @@ class ClsDeviceInfo {
 
     return [
       "${WindowsSystemInfo.os?.uuid.toString()}",
-      windowsInfo.deviceId ?? 'Unknown',
+      windowsInfo.deviceId,
       'Type:${Platform.operatingSystem}',
       'id:${WindowsSystemInfo.os?.serial.toString()},${WindowsSystemInfo.os?.distro.toString()},${WindowsSystemInfo.cpu?.brand.toString()}',
     ];

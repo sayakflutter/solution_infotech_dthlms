@@ -4,11 +4,13 @@ import 'package:dthlms/font/font_family.dart';
 import 'package:dthlms/home/homepage.dart';
 import 'package:dthlms/pages/utctime.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widget/drawerWidget.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+  late final dbdata;
+  Dashboard({super.key});
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -16,6 +18,12 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   UtcTime time = UtcTime();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -49,12 +57,14 @@ class _DashboardState extends State<Dashboard> {
                 ))
           ],
           backgroundColor: ColorPage.appbarcolor,
-          title:  Card(
+          title: Card(
             child: Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
                 'Hi, Sayak Mishra',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: ClsFontsize.Small),//20
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ClsFontsize.Small), //20
               ),
             ),
           ),
