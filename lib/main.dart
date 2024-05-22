@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
+import 'db/dbfunction/dbfunction.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sqfliteFfiInit();
@@ -28,6 +30,7 @@ class _MyAppState extends State<MyApp> {
   Database? _database;
   @override
   void initState() {
+    print(retrieveItems());
     super.initState();
   }
 

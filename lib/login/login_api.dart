@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:dthlms/configaration/device/windows_device_info.dart';
+import 'dart:io';
+import 'package:dthlms/configaration/device/device_info.dart';
 import 'package:dthlms/errormsg/errorhandling.dart';
 import 'package:dthlms/getx/getxcontroller.dart';
 import 'package:dthlms/login/loginmodel.dart';
@@ -24,7 +25,16 @@ Future loginApi(
       builder: (context) {
         return const Center(child: CircularProgressIndicator.adaptive());
       });
-  var deviceinfo = await ClsDeviceInfo.initInfo();
+  var deviceinfo;
+  if (Platform.isAndroid) {
+    deviceinfo = ClsDeviceInfo.androidInfo();
+  } else if (Platform.isWindows) {
+    deviceinfo = await ClsDeviceInfo.windowsInfo();
+  } else if (Platform.isIOS) {
+    deviceinfo = ClsDeviceInfo.androidInfo();
+  } else if (Platform.isMacOS) {
+    deviceinfo = await ClsDeviceInfo.windowsInfo();
+  }
   var logindata = ClsMap.objLoginApi(
     loginemail,
     password,
@@ -68,9 +78,30 @@ Future signupApi(BuildContext context, String signupuser, String signupname,
         builder: (context) {
           return const Center(child: CircularProgressIndicator.adaptive());
         });
+    var deviceinfo;
+    if (Platform.isAndroid) {
+      deviceinfo = ClsDeviceInfo.androidInfo();
+    } else if (Platform.isWindows) {
+      deviceinfo = await ClsDeviceInfo.windowsInfo();
+    } else if (Platform.isIOS) {
+      deviceinfo = ClsDeviceInfo.androidInfo();
+    } else if (Platform.isMacOS) {
+      deviceinfo = await ClsDeviceInfo.windowsInfo();
+    }
 
-    var signupdata = ClsMap.objSignupApi(signupuser, signupname, signupemail,
-        signuppassword, signupphno, key, otp);
+    var signupdata = ClsMap.objSignupApi(
+      signupuser,
+      signupname,
+      signupemail,
+      signuppassword,
+      signupphno,
+      key,
+      otp,
+      deviceinfo[0],
+      deviceinfo[1],
+      deviceinfo[2],
+      deviceinfo[3],
+    );
     final http.Response res = await http.post(
         Uri.https(ClsUrlApi.mainurl, '${ClsUrlApi.signupEndpoint}$key'),
         headers: <String, String>{

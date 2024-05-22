@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   Getx get_obj = Get.put(Getx());
   double? size = 80;
   double? hight = 230;
+  double width = 349;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: SizedBox(
                         height: hight,
-                        width: 349,
+                        width: width,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: SizedBox(
                         height: hight,
-                        width: 349,
+                        width: width,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -133,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                     surfaceTintColor: Colors.white,
                     child: SizedBox(
                       height: hight,
-                      width: 349,
+                      width: width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -178,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                     surfaceTintColor: Colors.white,
                     child: SizedBox(
                       height: hight,
-                      width: 349,
+                      width: width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -225,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: SizedBox(
                         height: hight,
-                        width: 349,
+                        width: width,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -266,7 +267,7 @@ class _HomePageState extends State<HomePage> {
                     surfaceTintColor: Colors.white,
                     child: SizedBox(
                       height: hight,
-                      width: 349,
+                      width: width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -311,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                     surfaceTintColor: Colors.white,
                     child: SizedBox(
                       height: hight,
-                      width: 349,
+                      width: width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -351,7 +352,7 @@ class _HomePageState extends State<HomePage> {
                     surfaceTintColor: Colors.white,
                     child: SizedBox(
                       height: hight,
-                      width: 349,
+                      width: width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

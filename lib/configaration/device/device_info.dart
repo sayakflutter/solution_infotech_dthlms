@@ -4,7 +4,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:windows_system_info/windows_system_info.dart';
 
 class ClsDeviceInfo {
-  static Future<List<String>> initInfo() async {
+  static Future<List<String>> windowsInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     WindowsDeviceInfo windowsInfo = await deviceInfoPlugin.windowsInfo;
 
@@ -36,7 +36,7 @@ class ClsDeviceInfo {
     ];
   }
 
-  static Future<void> getDeviceDetails() async {
+  static Future<void> androidInfo() async {
     DeviceInfoPlugin android = DeviceInfoPlugin();
     if (Platform.isAndroid) {
       var info = await android.androidInfo;
