@@ -35,4 +35,25 @@ class ClsDeviceInfo {
       'id:${WindowsSystemInfo.os?.serial.toString()},${WindowsSystemInfo.os?.distro.toString()},${WindowsSystemInfo.cpu?.brand.toString()}',
     ];
   }
+
+  static Future<void> getDeviceDetails() async {
+    DeviceInfoPlugin android = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      var info = await android.androidInfo;
+      // DeviceNmae=info.model;
+      print("brand--" + info.brand);
+
+      print("id--" + info.id);
+      print("board--" + info.board);
+      print("version--" + info.version.release);
+      print("type--" + info.type);
+      print("model--" + info.model);
+
+      print(info.supported32BitAbis);
+      print(info.supported64BitAbis);
+      print(info.supportedAbis);
+      print(info.systemFeatures);
+      print(info.data);
+    }
+  }
 }
